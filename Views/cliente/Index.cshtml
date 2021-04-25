@@ -1,0 +1,45 @@
+﻿@model IEnumerable<peliculas.Models.cliente.cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-outline-secondary my-2 my-sm-0" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email).ToString().ToUpper()
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in @ViewBag.lista_clientes) {
+    <tr>
+        <td>
+            @item.nombre
+        </td>
+        <td>
+           @item.telefono
+        </td>
+        <td>
+            @item.email
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<peliculas.Models.alquiler.alquiler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista peliculas Alquiladas.</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id=0} , new { @class = "btn btn-outline-secondary my-2 my-sm-0" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.estado).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_alquiler).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_entrega).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_pelicula).ToString().ToUpper()
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre_cliente).ToString().ToUpper()
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in @ViewBag.lista_alquiler)
+    {
+        <tr>
+            <td>
+                @item.estado
+            </td>
+            <td>
+                @item.fecha_alquiler
+            </td>
+            <td>
+                @item.fecha_entrega
+            </td>
+            <td>
+                @item.nombre_pelicula
+            </td>
+            <td>
+                @item.nombre_cliente
+            </td>
+            <td>
+                @Html.ActionLink("Entregar", "edit", new { id=item.id}, new { @class = "btn btn-outline-secondary my-2 my-sm-0" })
+            </td>
+        </tr>
+    }
+
+</table>

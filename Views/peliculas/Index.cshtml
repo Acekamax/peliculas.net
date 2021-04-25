@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "pelicula";
+}
+<body>
+    <div class="container">
+        <div class="row">
+            @foreach (var x in @ViewBag.lista_peliculas)
+            {
+             <div class="col-md-4 mb-3">
+                 <div class="card h-100">
+                     <img src="~/images/imagen.jpg" class="card-img-top" alt="...">
+                     <div class="card-body">
+                         <h5 class="card-title">@x.nombre_pelicula</h5>
+                         <p class="card-text">@x.descripcion</p>
+                         <p>Genero: @x.genero</p>
+                     </div>
+                     <div class="card-footer">
+                         @Html.ActionLink("Alquiler", "create", "Alquiler", new {id=x.id }, new { @class = "nav-link btn btn-outline-primary my-2 my-sm-0" })
+                     </div>
+                 </div>
+             </div>    
+                }
+            </div>
+        </div>
+</body>
